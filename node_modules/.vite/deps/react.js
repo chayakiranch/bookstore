@@ -1,2 +1,2 @@
-import { t as require_react } from "./react-DI8Hxiyg.js";
+import { t as require_react } from "./react-B6BdZLWZ.js";
 export default require_react();

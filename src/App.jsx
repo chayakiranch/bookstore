@@ -51,59 +51,35 @@ export default function App() {
 
               {/* ── AUTH ROUTES ───────────────────────────────────────────── */}
               <Route path="/auth">
-                <Route
-                  path="login"
-                  element={
-                    <RedirectIfAuth>
-                      <CustomerLogin />
-                    </RedirectIfAuth>
-                  }
-                />
-                <Route
-                  path="register"
-                  element={
-                    <RedirectIfAuth>
-                      <CustomerRegister />
-                    </RedirectIfAuth>
-                  }
-                />
-                <Route
-                  path="admin/login"
-                  element={
-                    <RedirectIfAuth adminPage>
-                      <AdminLogin />
-                    </RedirectIfAuth>
-                  }
-                />
+                <Route path="login"       element={<RedirectIfAuth><CustomerLogin /></RedirectIfAuth>} />
+                <Route path="register"    element={<RedirectIfAuth><CustomerRegister /></RedirectIfAuth>} />
+                <Route path="admin/login" element={<RedirectIfAuth adminPage><AdminLogin /></RedirectIfAuth>} />
               </Route>
 
               {/* ── CUSTOMER ROUTES ───────────────────────────────────────── */}
               <Route element={<CustomerLayout />}>
-                <Route index element={<Home />} />
-                <Route path="books"              element={<BookListing />} />
-                <Route path="books/:id"          element={<BookDetail />} />
-                <Route path="genre/:genre"       element={<BookListing />} />
-                <Route path="section/:tag"       element={<BookListing />} />
-                <Route path="search"             element={<BookListing />} />
-                <Route path="cart"               element={<RequireCustomer><Cart /></RequireCustomer>} />
-                <Route path="checkout"           element={<RequireCustomer><Checkout /></RequireCustomer>} />
+                <Route index                              element={<Home />} />
+                <Route path="books"                       element={<BookListing />} />
+                <Route path="books/:id"                   element={<BookDetail />} />
+                <Route path="genre/:genre"                element={<BookListing />} />
+                <Route path="section/:tag"                element={<BookListing />} />
+                <Route path="search"                      element={<BookListing />} />
+                <Route path="cart"     element={<RequireCustomer><Cart /></RequireCustomer>} />
+                <Route path="checkout" element={<RequireCustomer><Checkout /></RequireCustomer>} />
                 <Route path="order-confirmation/:orderId" element={<RequireCustomer><OrderConfirmation /></RequireCustomer>} />
-                <Route path="profile"            element={<RequireCustomer><CustomerProfile /></RequireCustomer>} />
-                <Route path="orders"             element={<RequireCustomer><Orders /></RequireCustomer>} />
+                <Route path="profile"  element={<RequireCustomer><CustomerProfile /></RequireCustomer>} />
+                <Route path="orders"   element={<RequireCustomer><Orders /></RequireCustomer>} />
               </Route>
 
               {/* ── ADMIN ROUTES ──────────────────────────────────────────── */}
-              <Route
-                path="/admin"
-                element={<RequireAdmin><AdminLayout /></RequireAdmin>}
-              >
-                <Route index element={<Navigate to="dashboard" replace />} />
-                <Route path="dashboard"      element={<Dashboard />} />
-                <Route path="books"          element={<ManageBooks />} />
-                <Route path="books/add"      element={<AddBook />} />
-                <Route path="books/:id/edit" element={<EditBook />} />
-                <Route path="orders"         element={<AdminOrders />} />
-                <Route path="analytics"      element={<Analytics />} />
+              <Route path="/admin" element={<RequireAdmin><AdminLayout /></RequireAdmin>}>
+                <Route index                  element={<Navigate to="dashboard" replace />} />
+                <Route path="dashboard"       element={<Dashboard />} />
+                <Route path="books"           element={<ManageBooks />} />
+                <Route path="books/add"       element={<AddBook />} />
+                <Route path="books/:id/edit"  element={<EditBook />} />
+                <Route path="orders"          element={<AdminOrders />} />
+                <Route path="analytics"       element={<Analytics />} />
               </Route>
 
               {/* ── FALLBACK ──────────────────────────────────────────────── */}
