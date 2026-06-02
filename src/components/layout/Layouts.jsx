@@ -61,3 +61,6 @@ export function AdminLayout() {
     </div>
   )
 }
+
+//src/components/layout/Layouts.jsx
+//to do after phase 6
