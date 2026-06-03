@@ -1,12 +1,3 @@
-const ManageBooks = () => {
-  return (
-    <div>
-      <h2>ManageBooks Component</h2>
-    </div>
-  );
-};
-
-export default ManageBooks;
 import { useState, useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import {
